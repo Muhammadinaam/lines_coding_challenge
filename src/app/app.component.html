@@ -1,0 +1,58 @@
+<h3>Lines Coding Challenge</h3>
+<hr>
+
+<h4>Points</h4> 
+
+<table>
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let point of points; let i = index">
+      <td>
+        <input type="number" (change)="inputChanged()" [(ngModel)]="point.x">
+      </td>
+      <td>
+        <input type="number" (change)="inputChanged()" [(ngModel)]="point.y">
+      </td>
+      <td>
+        <button (click)="removePoint(i)">Remove Point</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="addPoint()">Add Point</button>
+
+<hr>
+
+<button (click)="calculateLinesSolutions()">Calculate Lines Solution</button>
+<h4>Solution</h4>
+<p *ngIf="solutionCalculated == false">
+  Please click [Calculate Lines Solution] button
+</p>
+<div *ngIf="solutionCalculated == true">
+  <p *ngIf="lines.length == 0">
+    No line passes more than 2 points
+  </p>
+  <div *ngIf="lines.length > 0">
+    <h4>Lines Passing more than 2 points: (Line represented as: y = mx + b)</h4>
+    <table class="solution-table">
+      <thead>
+        <tr>
+          <th>m</th>
+          <th>b</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let line of lines">
+          <td>{{line.m}}</td>
+          <td>{{line.b}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
