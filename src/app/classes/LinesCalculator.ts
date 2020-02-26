@@ -18,15 +18,18 @@ export class LinesCalculator {
             let point2 = points[i+1];
             let lineOfPoint1And2 = LinesCalculator.calculateLineFromTwoPoints(point1, point2);
 
-            if(lineOfPoint1And2 != null) {
-                for(let j = i+2; j < points.length; j++) {
-                    let point3 = points[j];
-                    if(LinesCalculator.pointExistsOnLine(point3, lineOfPoint1And2)) {
-                        lines.push(lineOfPoint1And2);
-                        break;
-                    }
+            if(lineOfPoint1And2 == null) {
+                continue;
+            }
+
+            for(let j = i+2; j < points.length; j++) {
+                let point3 = points[j];
+                if(LinesCalculator.pointExistsOnLine(point3, lineOfPoint1And2)) {
+                    lines.push(lineOfPoint1And2);
+                    break;
                 }
             }
+            
         }
 
         return lines;
