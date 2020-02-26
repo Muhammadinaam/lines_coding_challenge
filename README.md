@@ -1,5 +1,8 @@
 # Lines Coding Challenge
 
+## Demo
+![Demo](demo/demo.gif)
+
 ## Lines Calculation Code
 Lines calculation code is in this file:
 https://github.com/Muhammadinaam/lines_coding_challenge/blob/master/src/app/classes/LinesCalculator.ts
